@@ -1,6 +1,9 @@
 import { SlideTransition } from "./slide-transition";
 import {next_pointer_icon, previous_pointer_icon} from "./icon-definitions";
 
+
+// adjust method here to call forceShowAll when in beamer export
+// docs to follow
 export class ContentComponent {
   private view: HTMLElement;
   private progress_bar: HTMLElement;
@@ -438,6 +441,28 @@ export class ContentComponent {
   public enableLastButtons(): void {
     document.getElementById("rslidy-button-last").removeAttribute("disabled");
     document.getElementById("rslidy-button-next").removeAttribute("disabled");
+  }
+
+  public forceShowAllIncrementalContent(): void {
+    for (let slideindex = 0; slideindex < window.rslidy.num_slides; slideindex++) {
+      const numIncrItems = this.getNumIncrItems(slideindex, false);
+      if (numIncrItems > 0) {
+        const contentSection = document.getElementById("rslidy-content-section");
+        const slide = contentSection.getElementsByClassName("slide")[slideindex];
+        const incrItems = slide.querySelectorAll("ul.incremental li");
+
+        incrItems.forEach(item => {
+          item.classList.remove("rslidy-invisible");
+        });
+      }
+    }
+  
+    const hiddenElements = document.querySelectorAll('.rslidy-hidden:not(.rslidy-ui)');
+    hiddenElements.forEach(el => {
+      el.classList.remove('rslidy-hidden');
+    });
+
+    console.log('Forced incremental content to show for export!')  
   }
 
 
