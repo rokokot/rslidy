@@ -106,6 +106,12 @@ export const print_settings = [
   `Orientation:`,
   `Page Size:`,
   `Print`,
+  // here define ui component text
+  `Export Format:`,
+  `Beamer PDF Export`,
+  `Force Show All Content`,
+  `Page Break Handling:`,
+  `Export Beamer PDF`
 ];
 
 export const toolbar = [
@@ -129,4 +135,18 @@ export const imageviewer = [
   `Zoom In (+)`,
   `Zoom Out (-)`,
   `Close (Esc)`
+];
+
+
+// same here
+
+export const beamer = [
+  `Standard Print`,
+  `Beamer PDF Export`,
+  `Force Show All Content`,
+  `Page Break Handling`,
+  `Force Fit (may cut content)`,
+  `Auto Break (split long slides)`,
+  `Smart Break (insert break points)`,
+  `Export Beamer PDF`
 ];
