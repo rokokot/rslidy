@@ -268,7 +268,17 @@ aria-label="Settings" tabindex="0">
 </div>`;
 
 
-
+// define expected behavior for better print
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 export const print_settings_html = `
 <div id="rslidy-print-menu" class="rslidy-hidden rslidy-ui"
 role="region" aria-label="Print Settings" tabindex="0">
@@ -325,6 +335,48 @@ role="region" aria-label="Print Settings" tabindex="0">
     <option value="148mm 210mm">A5</option>
     </select>
   </label>
+
+  <fieldset id="rslidy-export-format" style="margin-top: 1.5em;">
+    <h4 style="margin-bottom: 0.8em; font-weight: 600;">Export Format</h4>
+    <label class="rslidy-print-sizing">
+      <input type="radio" name="export-format" value="standard" checked class="print-checkbox"> Standard Print
+    </label>
+    <label class="rslidy-print-sizing">
+      <input type="radio" name="export-format" value="beamer" class="print-checkbox"> Beamer PDF Export
+    </label>
+  </fieldset>
+  
+  <!-- NEW: Beamer-specific options (initially hidden) -->
+  <div id="rslidy-beamer-options" class="rslidy-hidden" style="margin-top: 1em;">
+    <label class="rslidy-menu-content">
+      Force Show All Content
+      <input type="checkbox" value="ShowAll" id="rslidy-checkbox-show-all" checked>
+      <label for="rslidy-checkbox-show-all">`+i.slider_icon+`</label>
+    </label>
+    
+    <fieldset id="rslidy-page-break-options" style="margin-top: 1em;">
+      <h4 style="margin-bottom: 0.5em; font-weight: 600;">Page Break Handling</h4>
+      <label class="rslidy-print-sizing">
+        <input type="radio" name="page-break" value="force-fit" checked class="print-checkbox"> 
+        Force Fit (may cut content)
+      </label>
+      <label class="rslidy-print-sizing">
+        <input type="radio" name="page-break" value="auto-break" class="print-checkbox"> 
+        Auto Break (split long slides)
+      </label>
+      <label class="rslidy-print-sizing">
+        <input type="radio" name="page-break" value="smart-break" class="print-checkbox"> 
+        Smart Break (insert break points)
+      </label>
+    </fieldset>
+    
+    <div class="rslidy-menu-content">
+      <button id="rslidy-button-export-beamer">Export Beamer PDF</button>
+    </div>
+  </div>
+
+
+
   <fieldset id="rslidy-exclusive-checkboxes" style="margin-top: 1.5em;">
   <h4 style="margin-bottom: 0.8em; font-weight: 600;">Print Sizing</h4>
    <label id="rslidy-checkbox-actual-size-text" class="rslidy-print-sizing">
