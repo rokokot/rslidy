@@ -101,6 +101,7 @@ export const print_settings = [
   `Show Slide Numbers`,
   `Show Frame`,
   `Show Link Destinations`,
+  `Force Show All Content`,
   `Sildes to Print:`,
   `Font Size:`,
   `Orientation:`,

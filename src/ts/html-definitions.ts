@@ -287,7 +287,12 @@ role="region" aria-label="Print Settings" tabindex="0">
     <input type="checkbox" value="Links" id="rslidy-checkbox-link">
     <label for="rslidy-checkbox-link">`+i.slider_icon+`</label>
   </label>
- <fieldset id="rslidy-slide-print-options">`+t.print_settings[3]+`
+  <label id="rslidy-checkbox-force-show-text" class="rslidy-menu-content">
+    `+t.print_settings[3]+`
+    <input type="checkbox" value="ForceShow" id="rslidy-checkbox-force-show" checked>
+    <label for="rslidy-checkbox-force-show">`+i.slider_icon+`</label>
+  </label>
+ <fieldset id="rslidy-slide-print-options">`+t.print_settings[4]+`
     <label class="rslidy-print-slides">
       <input type="radio" name="slide-print-option" value="all" checked class="rslidy-print-slide-input"> All
     </label>
