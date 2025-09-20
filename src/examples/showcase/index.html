@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rslidy Complete Feature Showcase</title>
+    <link rel="stylesheet" href="rslidy.min.css" />
+    <style>
+        /* Custom showcase styling */
+        :root {
+            --showcase-primary: #667eea;
+            --showcase-secondary: #764ba2;
+            --showcase-accent: #f093fb;
+            --showcase-success: #4ecdc4;
+            --showcase-warning: #ff6b6b;
+            --showcase-info: #45b7d1;
+        }
+
+        .hero-slide {
+            background: linear-gradient(135deg, var(--showcase-primary), var(--showcase-secondary));
+            color: white;
+            text-align: center;
+            padding: 4em 2em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slide h1, .hero-slide h2 {
+            color: white;
+            border: none;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            margin-top: 2em;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--showcase-primary);
+        }
+
+        .demo-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-table th,
+        .demo-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .demo-table th {
+            background: var(--showcase-primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        .demo-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .demo-table tr:hover {
+            background: #e3f2fd;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.5em;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 1em 0;
+        }
+
+        .responsive-columns {
+            display: flex;
+            gap: 2em;
+            margin: 1em 0;
+        }
+
+        .responsive-columns > * {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .responsive-columns {
+                flex-direction: column;
+                gap: 1em;
+            }
+        }
+
+        .interactive-demo {
+            background: #f8f9fa;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 2em;
+            text-align: center;
+            margin: 1em 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1em 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--showcase-primary), var(--showcase-accent));
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .button-demo {
+            display: flex;
+            gap: 1em;
+            flex-wrap: wrap;
+            margin: 1em 0;
+        }
+
+        .demo-button {
+            padding: 0.8em 1.5em;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .demo-button.primary {
+            background: var(--showcase-primary);
+            color: white;
+        }
+
+        .demo-button.secondary {
+            background: var(--showcase-secondary);
+            color: white;
+        }
+
+        .demo-button.success {
+            background: var(--showcase-success);
+            color: white;
+        }
+
+        .demo-button.warning {
+            background: var(--showcase-warning);
+            color: white;
+        }
+
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .math-demo {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin: 1em 0;
+        }
+
+        .alert-box {
+            padding: 1em;
+            border-radius: 6px;
+            margin: 1em 0;
+            border-left: 4px solid;
+        }
+
+        .alert-info {
+            background: #e3f2fd;
+            border-color: var(--showcase-info);
+            color: #0277bd;
+        }
+
+        .alert-success {
+            background: #e8f5e9;
+            border-color: var(--showcase-success);
+            color: #2e7d32;
+        }
+
+        .alert-warning {
+            background: #fff3e0;
+            border-color: var(--showcase-warning);
+            color: #f57c00;
+        }
+
+        .card-deck {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1em;
+            margin: 1em 0;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .icon-large {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            display: block;
+        }
+
+        .live-code-demo {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1em;
+            margin: 1em 0;
+        }
+
+        .live-output {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 1em;
+            margin-top: 1em;
+            min-height: 50px;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2em;
+            margin: 2em 0;
+        }
+
+        .accessibility-demo {
+            background: #e8f5e9;
+            border: 1px solid #4caf50;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin: 1em 0;
+        }
+
+        .form-demo {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin: 1em 0;
+        }
+
+        .form-group {
+            margin-bottom: 1em;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .network-status {
+            display: inline-block;
+            padding: 0.3em 0.8em;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .status-online {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-offline {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .animation-demo {
+            margin: 2em 0;
+            text-align: center;
+        }
+
+        .animation-box {
+            width: 100px;
+            height: 100px;
+            background: var(--showcase-primary);
+            margin: 1em auto;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .animation-box:hover {
+            transform: rotate(5deg) scale(1.1);
+            background: var(--showcase-accent);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+            40%, 43% { transform: translate3d(0, -30px, 0); }
+            70% { transform: translate3d(0, -15px, 0); }
+            90% { transform: translate3d(0, -4px, 0); }
+        }
+
+        .bounce {
+            animation: bounce 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="fade">
+    <section class="hero-slide">
+        <h1>🚀 Rslidy Complete Showcase</h1>
+        <h2>Every Feature, Every Capability, One Presentation</h2>
+        <p>Explore the full power of HTML5 presentations with Rslidy</p>
+
+        <div class="alert-box alert-info" style="text-align: left; max-width: 600px; margin: 2em auto;">
+            <strong>📖 Navigation Tips:</strong>
+            <ul style="margin: 0.5em 0;">
+                <li>Use arrow keys, space bar, or click to navigate</li>
+                <li>Press F11 for fullscreen mode</li>
+                <li>Try the image viewer by clicking on images</li>
+                <li>Notice how incremental lists appear step by step</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h1>📋 Table of Contents</h1>
+        <p>This showcase demonstrates every major Rslidy feature:</p>
+
+        <div class="responsive-columns">
+            <div>
+                <h3>Core Features</h3>
+                <ol>
+                    <li>Navigation & Transitions</li>
+                    <li>Incremental Content</li>
+                    <li>Responsive Design</li>
+                    <li>Image Viewer</li>
+                    <li>Typography & Layouts</li>
+                </ol>
+            </div>
+            <div>
+                <h3>Advanced Features</h3>
+                <ol start="6">
+                    <li>Interactive Elements</li>
+                    <li>Tables & Data</li>
+                    <li>Code Highlighting</li>
+                    <li>Media Integration</li>
+                    <li>Accessibility</li>
+                </ol>
+            </div>
+            <div>
+                <h3>Customization</h3>
+                <ol start="11">
+                    <li>CSS Variables</li>
+                    <li>Custom Styling</li>
+                    <li>Print & Export</li>
+                    <li>Configuration</li>
+                    <li>Performance</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1>🎯 Navigation & Transitions</h1>
+        <p>Rslidy supports multiple slide transition types and navigation methods:</p>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🎨 Transition Types</h3>
+                <ul>
+                    <li><strong>Fade:</strong> Smooth opacity transitions</li>
+                    <li><strong>Slide:</strong> Horizontal slide movement</li>
+                    <li><strong>Zoom:</strong> Scale-based transitions</li>
+                    <li><strong>Unanimated:</strong> Instant switching</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>⌨️ Keyboard Navigation</h3>
+                <ul>
+                    <li>Arrow keys (←→↑↓)</li>
+                    <li>Space bar (next slide)</li>
+                    <li>Home/End (first/last)</li>
+                    <li>Page Up/Down</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>👆 Touch & Mouse</h3>
+                <ul>
+                    <li>Swipe gestures (mobile)</li>
+                    <li>Click to advance</li>
+                    <li>Margin tap navigation</li>
+                    <li>Scroll wheel support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="alert-box alert-info">
+            <strong>💡 Pro Tip:</strong> This presentation uses the "fade" transition. You can change it by modifying the body class: <code>&lt;body class="fade"&gt;</code>
+        </div>
+    </section>
+
+    <section>
+        <h1>📝 Incremental Content</h1>
+        <p>Content can appear progressively as you navigate through slides:</p>
+
+        <h3>Basic Incremental List</h3>
+        <ul class="incremental">
+            <li>🎯 This item appears first</li>
+            <li>🚀 This item appears second</li>
+            <li>✨ This item appears third</li>
+            <li>🎉 This item appears fourth</li>
+            <li>💯 This item appears last</li>
+        </ul>
+
+        <h3>Nested Incremental Lists</h3>
+        <ul class="incremental">
+            <li>🌟 Main topic A
+                <ul class="incremental">
+                    <li>📌 Subtopic A.1</li>
+                    <li>📌 Subtopic A.2</li>
+                </ul>
+            </li>
+            <li>🌟 Main topic B
+                <ul class="incremental">
+                    <li>📌 Subtopic B.1</li>
+                    <li>📌 Subtopic B.2</li>
+                </ul>
+            </li>
+            <li>🌟 Main topic C</li>
+        </ul>
+
+        <div class="alert-box alert-success">
+            <strong>✅ How it works:</strong> Add <code>class="incremental"</code> to any <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element.
+        </div>
+    </section>
+
+    <section>
+        <h1>📱 Responsive Design</h1>
+        <p>Rslidy automatically adapts to different screen sizes and orientations:</p>
+
+        <div class="responsive-columns">
+            <div class="demo-card">
+                <span class="icon-large">🖥️</span>
+                <h3>Desktop</h3>
+                <p>Full feature set with toolbar, keyboard shortcuts, and hover effects</p>
+            </div>
+            <div class="demo-card">
+                <span class="icon-large">📱</span>
+                <h3>Mobile</h3>
+                <p>Touch-optimized with swipe gestures and responsive layouts</p>
+            </div>
+            <div class="demo-card">
+                <span class="icon-large">📊</span>
+                <h3>Tablet</h3>
+                <p>Hybrid experience with both touch and traditional navigation</p>
+            </div>
+        </div>
+
+        <div class="interactive-demo">
+            <h3>📐 Try Resizing Your Browser</h3>
+            <p>Notice how this layout adapts to different screen sizes!</p>
+            <p>Current viewport: <span id="viewport-info">Loading...</span></p>
+        </div>
+
+        <div class="alert-box alert-info">
+            <strong>🔧 Technical:</strong> Uses CSS Grid, Flexbox, and media queries for responsive behavior.
+        </div>
+    </section>
+
+    <section>
+        <h1>🖼️ Image Viewer & Media</h1>
+        <p>Click on any image to experience Rslidy's built-in image viewer with zoom and pan capabilities:</p>
+
+        <div class="media-grid">
+            <div>
+                <h3>📸 Interactive Images</h3>
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM2NjdlZWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMDkzZmIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2cpIi8+PHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNsaWNrIHRvIFpvb20hPC90ZXh0Pjx0ZXh0IHg9IjUwJSIgeT0iNjAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbnRlcmFjdGl2ZSBJbWFnZSBEZW1vPC90ZXh0Pjwvc3ZnPg==" alt="Interactive Demo Image" style="width: 100%; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                <p>Features: Zoom, pan, fullscreen, keyboard controls</p>
+            </div>
+            <div>
+                <h3>🎵 Audio & Video Support</h3>
+                <div style="background: #f5f5f5; padding: 1em; border-radius: 8px;">
+                    <p>📻 Audio elements work natively:</p>
+                    <code>&lt;audio controls src="audio.mp3"&gt;&lt;/audio&gt;</code>
+
+                    <p style="margin-top: 1em;">🎬 Video elements supported:</p>
+                    <code>&lt;video controls src="video.mp4"&gt;&lt;/video&gt;</code>
+                </div>
+                <p>Full HTML5 media support with standard controls</p>
+            </div>
+        </div>
+
+        <div class="alert-box alert-success">
+            <strong>🎯 Image Viewer Controls:</strong>
+            <ul style="margin: 0.5em 0;">
+                <li><strong>Click:</strong> Open image viewer</li>
+                <li><strong>Scroll/+/-:</strong> Zoom in/out</li>
+                <li><strong>Drag:</strong> Pan around image</li>
+                <li><strong>Double-click:</strong> Reset zoom</li>
+                <li><strong>Esc:</strong> Close viewer</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h1>🎨 Typography & Layouts</h1>
+        <p>Rslidy provides flexible typography and layout options:</p>
+
+        <div class="responsive-columns">
+            <div>
+                <h3>🔤 Typography Scale</h3>
+                <h1 style="margin: 0.5em 0; font-size: 2.5em;">Heading 1</h1>
+                <h2 style="margin: 0.5em 0; font-size: 2em;">Heading 2</h2>
+                <h3 style="margin: 0.5em 0; font-size: 1.5em;">Heading 3</h3>
+                <h4 style="margin: 0.5em 0; font-size: 1.25em;">Heading 4</h4>
+                <p>Regular paragraph text with <strong>bold</strong>, <em>italic</em>, and <code>code</code> formatting.</p>
+            </div>
+            <div>
+                <h3>📐 Layout Options</h3>
+                <ul>
+                    <li><strong>Flexible columns:</strong> Auto-responsive</li>
+                    <li><strong>CSS Grid:</strong> Complex layouts</li>
+                    <li><strong>Flexbox:</strong> Component alignment</li>
+                    <li><strong>Custom spacing:</strong> CSS variables</li>
+                </ul>
+
+                <blockquote style="border-left: 4px solid var(--showcase-primary); padding-left: 1em; margin: 1em 0; font-style: italic; color: #666;">
+                    "Typography is the craft of endowing human language with a durable visual form." — Robert Bringhurst
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="alert-box alert-info">
+            <strong>🎛️ CSS Variables:</strong> Customize typography using Rslidy's CSS custom properties for consistent theming.
+        </div>
+    </section>
+
+    <section>
+        <h1>⚡ Interactive Elements</h1>
+        <p>Rslidy supports all HTML5 interactive elements and form controls:</p>
+
+        <div class="form-demo">
+            <h3>📝 Form Elements</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1em;">
+                <div class="form-group">
+                    <label for="demo-text">Text Input:</label>
+                    <input type="text" id="demo-text" placeholder="Enter some text..." onchange="updateOutput('text', this.value)">
+                </div>
+                <div class="form-group">
+                    <label for="demo-range">Range Slider:</label>
+                    <input type="range" id="demo-range" min="0" max="100" value="50" onchange="updateOutput('range', this.value)">
+                    <span id="range-value">50</span>
+                </div>
+                <div class="form-group">
+                    <label for="demo-select">Select Dropdown:</label>
+                    <select id="demo-select" onchange="updateOutput('select', this.value)">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" onchange="updateOutput('checkbox', this.checked)"> Checkbox Demo
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-demo">
+            <button class="demo-button primary" onclick="showAlert('Primary button clicked!')">Primary</button>
+            <button class="demo-button secondary" onclick="showAlert('Secondary button clicked!')">Secondary</button>
+            <button class="demo-button success" onclick="showAlert('Success button clicked!')">Success</button>
+            <button class="demo-button warning" onclick="showAlert('Warning button clicked!')">Warning</button>
+        </div>
+
+        <div class="live-output" id="interactive-output">
+            <strong>🔄 Live Output:</strong> Interact with the elements above to see real-time updates here!
+        </div>
+
+        <div class="animation-demo">
+            <h3>🎪 CSS Animations</h3>
+            <div class="animation-box" onclick="this.classList.toggle('bounce')">
+                Click Me!
+            </div>
+            <p>Click the box above to trigger a bounce animation</p>
+        </div>
+    </section>
+
+    <section>
+        <h1>📊 Tables & Data Presentation</h1>
+        <p>Professional data presentation with responsive tables:</p>
+
+        <table class="demo-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Browser Support</th>
+                    <th>Performance</th>
+                    <th>Accessibility</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>🎯 Navigation</td>
+                    <td>✅ All Modern</td>
+                    <td>⚡ Excellent</td>
+                    <td>♿ Full Support</td>
+                    <td><span class="network-status status-online">Stable</span></td>
+                </tr>
+                <tr>
+                    <td>🖼️ Image Viewer</td>
+                    <td>✅ All Modern</td>
+                    <td>⚡ Excellent</td>
+                    <td>♿ Full Support</td>
+                    <td><span class="network-status status-online">Stable</span></td>
+                </tr>
+                <tr>
+                    <td>📱 Touch Support</td>
+                    <td>✅ Mobile/Tablet</td>
+                    <td>⚡ Excellent</td>
+                    <td>♿ Full Support</td>
+                    <td><span class="network-status status-online">Stable</span></td>
+                </tr>
+                <tr>
+                    <td>🎨 Animations</td>
+                    <td>✅ CSS3 Support</td>
+                    <td>🔥 GPU Accelerated</td>
+                    <td>♿ Respects Preferences</td>
+                    <td><span class="network-status status-online">Stable</span></td>
+                </tr>
+                <tr>
+                    <td>🖨️ Print Mode</td>
+                    <td>✅ All Browsers</td>
+                    <td>⚡ Optimized</td>
+                    <td>♿ Screen Reader</td>
+                    <td><span class="network-status status-online">Enhanced</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 87%"></div>
+        </div>
+        <p style="text-align: center; margin-top: 0.5em;"><strong>Overall Feature Completeness: 87%</strong></p>
+
+        <div class="alert-box alert-success">
+            <strong>📈 Data Visualization:</strong> Tables automatically become responsive on mobile devices with improved readability.
+        </div>
+    </section>
+
+    <section>
+        <h1>💻 Code Highlighting & Live Examples</h1>
+        <p>Perfect for technical presentations with syntax highlighting and live code demonstrations:</p>
+
+        <h3>🌐 HTML Example</h3>
+        <div class="code-block">
+<span style="color: #569cd6;">&lt;section&gt;</span>
+  <span style="color: #569cd6;">&lt;h1&gt;</span><span style="color: #d4d4d4;">My Slide Title</span><span style="color: #569cd6;">&lt;/h1&gt;</span>
+  <span style="color: #569cd6;">&lt;ul</span> <span style="color: #92c5f8;">class</span><span style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"incremental"</span><span style="color: #569cd6;">&gt;</span>
+    <span style="color: #569cd6;">&lt;li&gt;</span><span style="color: #d4d4d4;">First point</span><span style="color: #569cd6;">&lt;/li&gt;</span>
+    <span style="color: #569cd6;">&lt;li&gt;</span><span style="color: #d4d4d4;">Second point</span><span style="color: #569cd6;">&lt;/li&gt;</span>
+  <span style="color: #569cd6;">&lt;/ul&gt;</span>
+<span style="color: #569cd6;">&lt;/section&gt;</span>
+        </div>
+
+        <h3>🎨 CSS Example</h3>
+        <div class="code-block">
+<span style="color: #d7ba7d;">:root</span> <span style="color: #d4d4d4;">{</span>
+  <span style="color: #9cdcfe;">--primary-color</span><span style="color: #d4d4d4;">:</span> <span style="color: #ce9178;">#667eea</span><span style="color: #d4d4d4;">;</span>
+  <span style="color: #9cdcfe;">--secondary-color</span><span style="color: #d4d4d4;">:</span> <span style="color: #ce9178;">#764ba2</span><span style="color: #d4d4d4;">;</span>
+<span style="color: #d4d4d4;">}</span>
+
+<span style="color: #d7ba7d;">.slide</span> <span style="color: #d4d4d4;">{</span>
+  <span style="color: #9cdcfe;">background</span><span style="color: #d4d4d4;">:</span> <span style="color: #dcdcaa;">linear-gradient</span><span style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">135deg</span><span style="color: #d4d4d4;">,</span> <span style="color: #dcdcaa;">var</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">--primary-color</span><span style="color: #d4d4d4;">),</span> <span style="color: #dcdcaa;">var</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">--secondary-color</span><span style="color: #d4d4d4;">));</span>
+  <span style="color: #9cdcfe;">transition</span><span style="color: #d4d4d4;">:</span> <span style="color: #ce9178;">all 0.3s ease</span><span style="color: #d4d4d4;">;</span>
+<span style="color: #d4d4d4;">}</span>
+        </div>
+
+        <h3>⚡ JavaScript Example</h3>
+        <div class="code-block">
+<span style="color: #c586c0;">function</span> <span style="color: #dcdcaa;">createSlideshow</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">options</span><span style="color: #d4d4d4;">) {</span>
+  <span style="color: #c586c0;">const</span> <span style="color: #4fc1ff;">config</span> <span style="color: #d4d4d4;">=</span> <span style="color: #d4d4d4;">{</span>
+    <span style="color: #9cdcfe;">transition</span><span style="color: #d4d4d4;">:</span> <span style="color: #ce9178;">'fade'</span><span style="color: #d4d4d4;">,</span>
+    <span style="color: #9cdcfe;">autoplay</span><span style="color: #d4d4d4;">:</span> <span style="color: #569cd6;">false</span><span style="color: #d4d4d4;">,</span>
+    <span style="color: #d4d4d4;">...</span><span style="color: #9cdcfe;">options</span>
+  <span style="color: #d4d4d4;">};</span>
+
+  <span style="color: #6a9955;">// Initialize Rslidy with configuration</span>
+  <span style="color: #9cdcfe;">window</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">rslidy</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">init</span><span style="color: #d4d4d4;">(</span><span style="color: #4fc1ff;">config</span><span style="color: #d4d4d4;">);</span>
+<span style="color: #d4d4d4;">}</span>
+        </div>
+
+        <div class="live-code-demo">
+            <h3>🚀 Live Code Demo</h3>
+            <p>Try modifying this CSS and see the effect:</p>
+            <textarea id="live-css" rows="4" style="width: 100%; margin-bottom: 1em; font-family: monospace;">
+.demo-element {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+            </textarea>
+            <button class="demo-button primary" onclick="applyLiveCSS()">Apply CSS</button>
+            <div class="live-output">
+                <div id="live-demo-element" class="demo-element">Live Demo Element</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1>♿ Accessibility Features</h1>
+        <p>Rslidy is built with accessibility as a core principle:</p>
+
+        <div class="accessibility-demo">
+            <h3>🎹 Keyboard Navigation</h3>
+            <div class="card-deck">
+                <div class="demo-card">
+                    <strong>Arrow Keys</strong><br>
+                    Navigate slides and incremental content
+                </div>
+                <div class="demo-card">
+                    <strong>Space Bar</strong><br>
+                    Advance to next slide/item
+                </div>
+                <div class="demo-card">
+                    <strong>Home/End</strong><br>
+                    Jump to first/last slide
+                </div>
+                <div class="demo-card">
+                    <strong>F11</strong><br>
+                    Toggle fullscreen mode
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>📢 Screen Reader Support</h3>
+                <ul>
+                    <li>ARIA roles and labels</li>
+                    <li>Semantic HTML structure</li>
+                    <li>Focus management</li>
+                    <li>Content announcements</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>🎨 Visual Accessibility</h3>
+                <ul>
+                    <li>High contrast support</li>
+                    <li>Respects system preferences</li>
+                    <li>Scalable text and UI</li>
+                    <li>Color-blind friendly</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>⚡ Motor Accessibility</h3>
+                <ul>
+                    <li>Large touch targets</li>
+                    <li>Keyboard-only navigation</li>
+                    <li>Timeout extensions</li>
+                    <li>Gesture alternatives</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="alert-box alert-success">
+            <strong>🏆 WCAG Compliance:</strong> Rslidy follows Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards.
+        </div>
+    </section>
+
+    <section>
+        <h1>🎛️ Configuration & Customization</h1>
+        <p>Extensive customization options for presentations:</p>
+
+        <h3>⚙️ JavaScript Configuration</h3>
+        <div class="code-block">
+<span style="color: #569cd6;">&lt;script&gt;</span>
+  <span style="color: #9cdcfe;">window</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">rslidy</span> <span style="color: #d4d4d4;">=</span> <span style="color: #d4d4d4;">{</span>
+    <span style="color: #9cdcfe;">close_menu_on_selection</span><span style="color: #d4d4d4;">:</span> <span style="color: #569cd6;">true</span><span style="color: #d4d4d4;">,</span>
+    <span style="color: #9cdcfe;">start_with_status_bar_minimized</span><span style="color: #d4d4d4;">:</span> <span style="color: #569cd6;">false</span><span style="color: #d4d4d4;">,</span>
+    <span style="color: #9cdcfe;">image_viewer</span><span style="color: #d4d4d4;">:</span> <span style="color: #569cd6;">true</span><span style="color: #d4d4d4;">,</span>
+    <span style="color: #9cdcfe;">start_in_low_light_mode</span><span style="color: #d4d4d4;">:</span> <span style="color: #569cd6;">false</span><span style="color: #d4d4d4;">,</span>
+    <span style="color: #9cdcfe;">block_slide_text_selection</span><span style="color: #d4d4d4;">:</span> <span style="color: #569cd6;">false</span>
+  <span style="color: #d4d4d4;">};</span>
+<span style="color: #569cd6;">&lt;/script&gt;</span>
+        </div>
+
+        <h3>🎨 CSS Variables</h3>
+        <div class="code-block">
+<span style="color: #d7ba7d;">:root</span> <span style="color: #d4d4d4;">{</span>
+  <span style="color: #6a9955;">/* Breakpoints */</span>
+  <span style="color: #9cdcfe;">--rslidy-large</span><span style="color: #d4d4d4;">:</span> <span style="color: #b5cea8;">44rem</span><span style="color: #d4d4d4;">;</span>
+  <span style="color: #9cdcfe;">--rslidy-medium</span><span style="color: #d4d4d4;">:</span> <span style="color: #b5cea8;">40rem</span><span style="color: #d4d4d4;">;</span>
+
+  <span style="color: #6a9955;">/* Colors */</span>
+  <span style="color: #9cdcfe;">--rslidy-toolbar-bg-color</span><span style="color: #d4d4d4;">:</span> <span style="color: #ce9178;">#e1e7ea</span><span style="color: #d4d4d4;">;</span>
+  <span style="color: #9cdcfe;">--rslidy-progressbar-bg-color-reached</span><span style="color: #d4d4d4;">:</span> <span style="color: #ce9178;">#003399</span><span style="color: #d4d4d4;">;</span>
+<span style="color: #d4d4d4;">}</span>
+        </div>
+
+        <div class="responsive-columns">
+            <div class="alert-box alert-info">
+                <strong>🎯 Toolbar Options:</strong>
+                <ul style="margin: 0.5em 0;">
+                    <li>Print settings dialog</li>
+                    <li>Slide overview mode</li>
+                    <li>Navigation controls</li>
+                    <li>Fullscreen toggle</li>
+                </ul>
+            </div>
+            <div class="alert-box alert-warning">
+                <strong>⚡ Performance Settings:</strong>
+                <ul style="margin: 0.5em 0;">
+                    <li>Animation preferences</li>
+                    <li>Image loading strategy</li>
+                    <li>Touch sensitivity</li>
+                    <li>Transition timing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1>🖨️ Print & Export Capabilities</h1>
+        <p>Professional print and export features for sharing presentations:</p>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>📄 Print Options</h3>
+                <ul>
+                    <li>All slides or custom range</li>
+                    <li>Multiple layout options</li>
+                    <li>Paper size selection</li>
+                    <li>Slide numbers & frames</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>🎯 Smart Content</h3>
+                <ul>
+                    <li>Automatic incremental reveal</li>
+                    <li>Responsive print layouts</li>
+                    <li>High-quality scaling</li>
+                    <li>Accessibility preserved</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>📊 Export Formats</h3>
+                <ul>
+                    <li>PDF via browser print</li>
+                    <li>Standalone HTML package</li>
+                    <li>Individual slide images</li>
+                    <li>Speaker notes export</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="alert-box alert-success">
+            <strong>🚀 Enhanced Print Mode:</strong> The new print mode automatically reveals all incremental content, ensuring your PDFs contain complete information without manual navigation.
+        </div>
+
+        <div class="math-demo">
+            <h3>📐 Mathematical Content</h3>
+            <p>Rslidy works great with mathematical notation using MathJax or similar libraries:</p>
+            <div style="text-align: center; font-size: 1.2em; margin: 1em 0;">
+                <p><strong>Pythagorean Theorem:</strong></p>
+                <p style="font-family: 'Times New Roman', serif; font-size: 1.5em;">
+                    a² + b² = c²
+                </p>
+                <p><strong>Quadratic Formula:</strong></p>
+                <p style="font-family: 'Times New Roman', serif; font-size: 1.2em;">
+                    x = (-b ± √(b² - 4ac)) / 2a
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1>🚀 Performance & Best Practices</h1>
+        <p>Rslidy is optimized for performance across all devices:</p>
+
+        <table class="demo-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Target</th>
+                    <th>Rslidy Score</th>
+                    <th>Optimization</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>📊 Bundle Size</td>
+                    <td>&lt; 200KB</td>
+                    <td>~150KB</td>
+                    <td>Minified + Gzipped</td>
+                </tr>
+                <tr>
+                    <td>⚡ First Paint</td>
+                    <td>&lt; 1.5s</td>
+                    <td>&lt; 1s</td>
+                    <td>Critical CSS Inline</td>
+                </tr>
+                <tr>
+                    <td>🎯 Interaction</td>
+                    <td>&lt; 100ms</td>
+                    <td>&lt; 50ms</td>
+                    <td>Event Optimization</td>
+                </tr>
+                <tr>
+                    <td>📱 Mobile Score</td>
+                    <td>&gt; 90</td>
+                    <td>95+</td>
+                    <td>Touch Optimized</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="responsive-columns">
+            <div class="alert-box alert-info">
+                <strong>🎛️ Best Practices:</strong>
+                <ul style="margin: 0.5em 0;">
+                    <li>Optimize images (WebP, SVG)</li>
+                    <li>Use CSS variables for theming</li>
+                    <li>Minimize custom JavaScript</li>
+                    <li>Test on multiple devices</li>
+                </ul>
+            </div>
+            <div class="alert-box alert-success">
+                <strong>⚡ Performance Features:</strong>
+                <ul style="margin: 0.5em 0;">
+                    <li>GPU-accelerated animations</li>
+                    <li>Efficient event handling</li>
+                    <li>Lazy loading support</li>
+                    <li>Memory management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero-slide">
+        <h1>🎉 Showcase Complete!</h1>
+        <h2>You've Experienced Every Major Rslidy Feature</h2>
+
+        <div style="margin-top: 3em;">
+            <div class="card-deck">
+                <div class="demo-card">
+                    <span class="icon-large">🎯</span>
+                    <h3>Navigation</h3>
+                    <p>Smooth transitions, multiple input methods</p>
+                </div>
+                <div class="demo-card">
+                    <span class="icon-large">📱</span>
+                    <h3>Responsive</h3>
+                    <p>Works perfectly on any device</p>
+                </div>
+                <div class="demo-card">
+                    <span class="icon-large">♿</span>
+                    <h3>Accessible</h3>
+                    <p>WCAG compliant, keyboard navigation</p>
+                </div>
+                <div class="demo-card">
+                    <span class="icon-large">🚀</span>
+                    <h3>Performant</h3>
+                    <p>Fast, lightweight, optimized</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert-box alert-success" style="text-align: left; max-width: 600px; margin: 2em auto;">
+            <strong>🎓 What You've Learned:</strong>
+            <ul style="margin: 0.5em 0;">
+                <li>✅ Complete feature overview</li>
+                <li>✅ Interactive demonstrations</li>
+                <li>✅ Best practices and optimization</li>
+                <li>✅ Accessibility and responsiveness</li>
+                <li>✅ Customization possibilities</li>
+            </ul>
+        </div>
+
+        <p style="margin-top: 2em; font-size: 1.2em;">
+            <strong>Ready to create amazing presentations with Rslidy! 🚀</strong>
+        </p>
+    </section>
+
+    <script type="module" src="rslidy.min.js"></script>
+    <script>
+        // Interactive demo functionality
+        function updateOutput(type, value) {
+            const output = document.getElementById('interactive-output');
+            if (type === 'range') {
+                document.getElementById('range-value').textContent = value;
+            }
+            output.innerHTML = `<strong>🔄 Live Output:</strong> ${type} changed to: <code>${value}</code>`;
+        }
+
+        function showAlert(message) {
+            const output = document.getElementById('interactive-output');
+            output.innerHTML = `<strong>🔔 Button Event:</strong> ${message}`;
+        }
+
+        function applyLiveCSS() {
+            const css = document.getElementById('live-css').value;
+            const element = document.getElementById('live-demo-element');
+
+            // Remove existing inline styles
+            element.removeAttribute('style');
+
+            // Create a style element
+            let styleEl = document.getElementById('live-demo-style');
+            if (!styleEl) {
+                styleEl = document.createElement('style');
+                styleEl.id = 'live-demo-style';
+                document.head.appendChild(styleEl);
+            }
+
+            styleEl.textContent = `#live-demo-element { ${css.replace(/[{}]/g, '').trim()} }`;
+        }
+
+        // Update viewport info
+        function updateViewportInfo() {
+            const info = document.getElementById('viewport-info');
+            if (info) {
+                info.textContent = `${window.innerWidth}px × ${window.innerHeight}px`;
+            }
+        }
+
+        // Initialize
+        updateViewportInfo();
+        window.addEventListener('resize', updateViewportInfo);
+
+        // Apply initial live CSS
+        document.addEventListener('DOMContentLoaded', function() {
+            applyLiveCSS();
+        });
+    </script>
+</body>
+</html>
